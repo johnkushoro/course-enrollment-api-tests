@@ -124,4 +124,11 @@ public class CoursePage extends BasePage implements ICourseOperations, ICourseQu
                 .when()
                 .post(ApiConstants.Endpoints.COURSES);
     }
+
+    public Response getCourseById(String courseId) {
+        return given(baseRequestSpec)
+                .pathParam(ApiConstants.PathParams.ID, courseId)
+                .when()
+                .get(ApiConstants.Endpoints.COURSE_BY_ID);
+    }
 }

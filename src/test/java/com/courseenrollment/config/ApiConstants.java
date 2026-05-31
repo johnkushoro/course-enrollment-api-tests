@@ -10,6 +10,7 @@ public class ApiConstants {
         
         // Course endpoints
         public static final String COURSES_ALL = "/courses/all";
+        public static final String COURSE_BY_ID = "/courses/{id}";
         public static final String COURSES_BY_TITLE = "/courses/title/{title}";
         public static final String COURSES_BY_INSTRUCTOR = "/courses/instructor/{instructor}";
         public static final String COURSES_AVAILABILITY = "/courses/availability/{courseCode}";

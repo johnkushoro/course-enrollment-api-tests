@@ -1,6 +1,5 @@
 package com.courseenrollment.utils;
 
-import com.courseenrollment.clients.CourseClient;
 import com.courseenrollment.config.ApiConstants;
 import io.restassured.response.Response;
 import org.slf4j.Logger;
@@ -70,18 +69,18 @@ public class ResponseParser {
         return null;
     }
     
-    public static String findCourseIdBySearch(CourseClient courseClient, String title) {
-        try {
-            Response searchResponse = courseClient.getCoursesByTitle(title);
-            if (searchResponse.getStatusCode() == ApiConstants.StatusCodes.OK) {
-                return searchResponse.jsonPath().getString("courses[0].id");
-            }
-        } catch (Exception e) {
-            logger.error("Error finding course ID by search: {}", e.getMessage());
-        }
-        
-        return null;
-    }
+//    public static String findCourseIdBySearch(CourseClient courseClient, String title) {
+//        try {
+//            Response searchResponse = courseClient.getCoursesByTitle(title);
+//            if (searchResponse.getStatusCode() == ApiConstants.StatusCodes.OK) {
+//                return searchResponse.jsonPath().getString("courses[0].id");
+//            }
+//        } catch (Exception e) {
+//            logger.error("Error finding course ID by search: {}", e.getMessage());
+//        }
+//
+//        return null;
+//    }
     
     public static boolean isSuccessfulResponse(Response response, int... expectedStatusCodes) {
         int actualStatus = response.getStatusCode();
